@@ -5,8 +5,10 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 const chainMaker = {
-  getLength() {
-    console.log("getLength");
+  getLength(chain) {
+    let res = chain.split("~~");
+    console.log(res);
+    return res.length;
     // remove line with error and write your code here
   },
   addLink(value) {
