@@ -14,7 +14,17 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class DepthCalculator {
   calculateDepth(arr) {
-    console.log(arr);
+    let dep = 1;
+    for (let elements of arr) {
+      if (elements instanceof Array) {
+        calculateDepth(elements);
+        dep += 1;
+        console.log('внутри рекурсии', dep);
+        return dep;
+      }
+      console.log("выход из цикла", dep);
+      return dep;
+    }
     // remove line with error and write your code here
   }
 }
