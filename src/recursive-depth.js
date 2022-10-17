@@ -17,10 +17,9 @@ class DepthCalculator {
     let dep = 1;
     for (let elements of arr) {
       if (elements instanceof Array) {
-        calculateDepth(elements);
         dep += 1;
         console.log('внутри рекурсии', dep);
-        return dep;
+        return calculateDepth(elements);
       }
       console.log("выход из цикла", dep);
       return dep;
