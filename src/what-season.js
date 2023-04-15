@@ -19,11 +19,11 @@ function getSeason(date) {
     //console.log('Unable to determine the time of year!')
   }*/
   if (!(arguments[0])) {
-    console.log("нулевая проверка");
+    // console.log("нулевая проверка");
     return 'Unable to determine the time of year!';
   }
   if (arguments.length === 1) {
-    console.log(typeof arguments[0]);
+    // console.log(typeof arguments[0]);
     if (typeof arguments[0] !== 'object') {
       throw new Error('Invalid date!')
     }
@@ -47,7 +47,7 @@ function getSeason(date) {
     }
   }
   if (1 < arguments.length && arguments.length < 3 | arguments.length === 0) {
-    console.log('Unable to determine the time of year!');
+    // console.log('Unable to determine the time of year!');
     return 'Unable to determine the time of year!';
   }
   if (arguments.length >= 3) {

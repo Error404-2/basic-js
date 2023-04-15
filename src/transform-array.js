@@ -23,7 +23,7 @@ function transform(arr) {
     // console.log('элемент');
   }
   //console.log(arr);
-  // remove line with error and write your code here
+  // remove line with error and write your code here;
 }
 
 module.exports = {
