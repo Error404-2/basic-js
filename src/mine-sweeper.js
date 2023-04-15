@@ -23,11 +23,41 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper(matrix) {
+  res = [];
+  for (i = 0; i < matrix.length; i++) {
+    res.push([]);
+    for (j = 0; j < matrix[i].length; j++) {
+      let count = ((i > 0) && (j > 0) && matrix[i - 1][j - 1] ? 1 : 0) +
+        ((i > 0) && matrix[i - 1][j] ? 1 : 0) +
+        ((i > 0) && (j + 1 < matrix[i].length) && matrix[i - 1][j + 1] ? 1 : 0) +
+        ((j > 0) && matrix[i][j - 1] ? 1 : 0) +
+        ((j + 1 < matrix[i].length) && matrix[i][j + 1] ? 1 : 0) +
+        ((i + 1 < matrix.length) && (j > 0) && matrix[i + 1][j - 1] ? 1 : 0) +
+        ((i + 1 < matrix.length) && matrix[i + 1][j] ? 1 : 0) +
+        ((i + 1 < matrix.length) && (j + 1 < matrix[i].length) && matrix[i + 1][j + 1] ? 1 : 0);
+
+      res[i].push(count);
+      // if(){}//если есть сверху
+      // if(){}//если есть слева
+      // if(){}//если есть справа
+      // if(){}//если есть снизу
+      // console.log("++++++++++++ count +++++++", res);
+    }
+  }
+  // console.log("+++++++++++++++++++", res);
+  return res;
 }
+
 
 module.exports = {
   minesweeper
 };
+
+let matrix1 = [
+  [true, false, false],
+  [false, true, false],
+  [false, false, false]
+]
+
+minesweeper(matrix1);
