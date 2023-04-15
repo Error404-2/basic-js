@@ -19,23 +19,23 @@ const HALF_LIFE_PERIOD = 5730;
  */
 function dateSample(Nt) {
   if (!(typeof Nt == "string")) {
-    console.log("Неверный тип ввода данных");
+    // console.log("Неверный тип ввода данных");
     return false;
   }
   Nt = Number(Nt);
   if (!isFinite(Nt) && isNaN(Nt)) {
-    console.log("не число");
+    // console.log("не число");
     return false;
   }
   if (Nt <= 0) {
-    console.log("неположительное");
+    // console.log("неположительное");
     return false;
   }
   let res = -(HALF_LIFE_PERIOD * Math.log(Nt / MODERN_ACTIVITY) / Math.log(2));
   res = Math.ceil(res);
-  console.log(res);
+  // console.log(res);
   if (res <= 0) {
-    console.log("неположительный результат");
+    // console.log("неположительный результат");
     return false;
   }
   return res;

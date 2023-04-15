@@ -20,7 +20,7 @@ function transform(arr) {
   return [];
 
   for (let element of arr) {
-    console.log('элемент');
+    // console.log('элемент');
   }
   //console.log(arr);
   // remove line with error and write your code here

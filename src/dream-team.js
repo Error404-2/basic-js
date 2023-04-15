@@ -15,13 +15,13 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function createDreamTeam(members) {
   //members.sort();
-  console.log(members);
+  // console.log(members);
   if (!(members instanceof Array) /*!== 'object'*/) {
-    console.log("не массив");
+    // console.log("не массив");
     return false;
   }
   if (members.length == 0) {
-    console.log("длина ноль");
+    // console.log("длина ноль");
     return false;
   }
   let res = [];
@@ -40,7 +40,7 @@ function createDreamTeam(members) {
   }
   res.sort();
   let str = res.join("");
-  console.log(str);
+  // console.log(str);
   return str;
   // remove line with error and write your code here
 }
