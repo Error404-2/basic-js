@@ -17,12 +17,12 @@ const { NotImplementedError } = require('../extensions/index.js');
 function isMAC48Address(n) {
   let l = n.toLowerCase();
   let arr = l.split("-");
-  console.log("+++++++++++++++++++++++", arr);
+  // console.log("+++++++++++++++++++++++", arr);
   if ((arr.length === 6) && (arr.every(elem => /[a-f0-9]{2}/.test(elem)))) {
-    console.log("++++++++++++++true");
+    // console.log("++++++++++++++true");
     return true;
   }
-  console.log("-----------false");
+  // console.log("-----------false");
   return false;
 }
 module.exports = {
