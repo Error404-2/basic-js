@@ -35,7 +35,7 @@ function encodeLine(str) {
       }
       count = 1;
     }
-    console.log("**********************-------++++", res);
+    // console.log("**********************-------++++", res);
   }
 }
 
