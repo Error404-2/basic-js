@@ -24,7 +24,7 @@ function sortByHeight(arr) {
   }
   // console.log("++++++++++++++++++++++СОРТИРОВКА", arr);
   let res = arr.map(iter => iter === -1 ? -1 : sort.pop());
-  console.log("++++++++++++++++++++++СОРТИРОВКА", res);
+  // console.log("++++++++++++++++++++++СОРТИРОВКА", res);
   return res
 }
 
