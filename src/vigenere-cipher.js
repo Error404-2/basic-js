@@ -48,6 +48,9 @@ class VigenereCipheringMachine {
         strRes.push(this.message[i]);
       }
     }
+    if (!this.flag) {
+      strRes = strRes.reverse()
+    }
     let res = strRes.join('');
     console.log("+++++++++++++++++", strRes, res);
     return res;
@@ -72,6 +75,9 @@ class VigenereCipheringMachine {
       } else {
         strRes.push(this.encryptedMessage[i]);
       }
+    }
+    if (!this.flag) {
+      strRes = strRes.reverse();
     }
     let res = strRes.join('');
     console.log("+++++++++++++++++", strRes, res);
