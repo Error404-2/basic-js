@@ -19,27 +19,34 @@ const { NotImplementedError } = require('../extensions/index.js');
  * reverseMachine.decrypt('AEIHQX SX DLLU!', 'alphonse') => '!NWAD TA KCATTA'
  * 
  */
-let sdvig = "abcdefghijklmnopqrstuvwxyz";
-sdvig = sdvig.toUpperCase();
+let abc = "abcdefghijklmnopqrstuvwxyz";
+abc = abc.toUpperCase();
 
 class VigenereCipheringMachine {
   constructor(flag = true) {
     this.flag = flag;
+    console.log("конструктор", flag);
   }
 
   encrypt(message, key) {
     if ((!message) || (!key)) {
       throw new Error("Incorrect arguments!")
     }
-    this.message = message;
-    this.key = key;
+    this.message = message.toUpperCase();
+    this.key = key.toUpperCase();
     let strRes = [];
-    for (i = 0; i < this.message.length; i++) {
-      let position = sdvig.indexOf(this.message[i]);
-      let keyPosition = i % this.key.length;
-      let indexKey = sdvig.indexOf(this.key[keyPosition]);
-      let sumPosition = (position + indexKey) % 26;
-      strRes.push(sdvig[sumPosition]);
+    let j = 0;
+    for (let i = 0; i < this.message.length; i++) {
+      if (/[A-Z]/.test(this.message[i])) {
+        let position = abc.indexOf(this.message[i]);
+        let keyPosition = j % this.key.length;
+        j++;
+        let indexKey = abc.indexOf(this.key[keyPosition]);
+        let sumPosition = (position + indexKey) % 26;
+        strRes.push(abc[sumPosition]);
+      } else {
+        strRes.push(this.message[i]);
+      }
     }
     let res = strRes.join('');
     console.log("+++++++++++++++++", strRes, res);
@@ -53,6 +60,8 @@ class VigenereCipheringMachine {
     this.key = key;
   }
 }
+// const vig = new VigenereCipheringMachine(false);
+// vig.encrypt('attack at dawn!', 'alphonse');
 
 module.exports = {
   VigenereCipheringMachine
