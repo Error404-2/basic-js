@@ -56,8 +56,26 @@ class VigenereCipheringMachine {
     if ((!encryptedMessage) || (!key)) {
       throw new Error("Incorrect arguments!")
     }
-    this.encryptedMessage = encryptedMessage;
-    this.key = key;
+    this.encryptedMessage = encryptedMessage.toUpperCase();
+    this.key = key.toUpperCase();
+
+    let strRes = [];
+    let j = 0;
+    for (let i = 0; i < this.encryptedMessage.length; i++) {
+      if (/[A-Z]/.test(this.encryptedMessage[i])) {
+        let position = abc.indexOf(this.encryptedMessage[i]);
+        let keyPosition = j % this.key.length;
+        j++;
+        let indexKey = abc.indexOf(this.key[keyPosition]);
+        let sumPosition = (26 + position - indexKey) % 26;
+        strRes.push(abc[sumPosition]);
+      } else {
+        strRes.push(this.encryptedMessage[i]);
+      }
+    }
+    let res = strRes.join('');
+    console.log("+++++++++++++++++", strRes, res);
+    return res;
   }
 }
 // const vig = new VigenereCipheringMachine(false);
